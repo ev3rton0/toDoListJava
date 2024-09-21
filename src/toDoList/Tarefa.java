@@ -1,81 +1,58 @@
 package toDoList;
 import java.time.LocalDate;
 
-
 public class Tarefa {
-	    private String titulo;
-	    private String descricao;
-	    private boolean concluida;
-	    private LocalDate dataEntrega;
-	    private int prioridade; // 1: Baixa, 2: Média, 3: Alta
+    private String titulo;
+    private String descricao;
+    private LocalDate dataEntrega;
+    private boolean concluida;
 
-	    // Construtor
-	    public Tarefa(String titulo, String descricao, LocalDate dataEntrega, int prioridade) {
-	        this.titulo = titulo;
-	        this.descricao = descricao;
-	        this.dataEntrega = dataEntrega;
-	        this.prioridade = prioridade;
-	        this.concluida = false; // Por padrão, uma nova tarefa não está concluída
-	    }
-	    
-	    @Override
-	    public String toString() {
-	    	return "titulo da tarefa: " + this.titulo + " | descrição: " + this.descricao + "| a prioridade é: " + Integer.toString(this.prioridade);
-	    }
+    public Tarefa(String titulo, String descricao, LocalDate dataEntrega) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataEntrega = dataEntrega;
+        this.concluida = false;
+    }
 
-	    // Método para marcar a tarefa como concluída
-	    public void marcarComoConcluida() {
-	        this.concluida = true;
-	    }
+    public String getTitulo() {
+        return titulo;
+    }
 
-	    // Método para editar a tarefa
-	    public void editarTarefa(String titulo, String descricao, LocalDate dataEntrega, int prioridade) {
-	        this.titulo = titulo;
-	        this.descricao = descricao;
-	        this.dataEntrega = dataEntrega;
-	        this.prioridade = prioridade;
-	    }
+    public String getDescricao() {
+        return descricao;
+    }
 
-	    // Retorna se a tarefa está concluída ou não
-	    public boolean isConcluida() {
-	        return concluida;
-	    }
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
+    }
 
-	    // Comparação de tarefas por data de entrega (se quiser ordenar por data)
-	    public int compareTo(Tarefa outraTarefa) {
-	        return this.dataEntrega.compareTo(outraTarefa.dataEntrega);
-	    }
+    public boolean isConcluida() {
+        return concluida;
+    }
 
-	    // Getters e Setters (se precisar acessar os atributos de fora)
-	    public String getTitulo() {
-	        return titulo;
-	    }
+    public void marcarComoConcluida() {
+        this.concluida = true;
+    }
+    
+    public void setConcluida(boolean concluida) {
+        this.concluida = concluida;
+    }
 
-	    public String getDescricao() {
-	        return descricao;
-	    }
+    @Override
+    public String toString() {
+        return "Tarefa: " + titulo + ", Descrição: " + descricao + ", Data de Entrega: " + dataEntrega + ", Concluída: " + (concluida ? "Sim" : "Não");
+    }
 
-	    public LocalDate getDataEntrega() {
-	        return dataEntrega;
-	    }
-
-	    public int getPrioridade() {
-	        return prioridade;
-	    }
-	    
-	    public void setTitulo(String titulo) {
-	        this.titulo = titulo;
-	    }
-
-	    public void setDescricao(String descricao) {
-	        this.descricao = descricao;
-	    }
-
-	    public void setDataEntrega(LocalDate dataEntrega) {
-	        this.dataEntrega = dataEntrega;
-	    }
-
-	    public void setPrioridade(int prioridade) {
-	        this.prioridade = prioridade;
-	    }
+    // Sobrescreve equals() para comparação de tarefas pelo título
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Tarefa tarefa = (Tarefa) obj;
+        return titulo.equals(tarefa.titulo);
+    }
 }
