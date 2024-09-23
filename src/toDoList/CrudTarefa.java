@@ -10,15 +10,32 @@ public class CrudTarefa {
         this.tarefas = new ArrayList<>();
     }
 
-    public void marcarComoConcluida(String titulo) {
+    public boolean marcarComoConcluida(String titulo) {
+        /*if (tarefas.isEmpty()) {
+            System.out.println("Não há tarefas para marcar como concluída.");
+            return false;
+        }*/
+
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getTitulo().equals(titulo)) {
                 tarefa.setConcluida(true);
                 System.out.println("Tarefa marcada como concluída: " + titulo);
-                return;
+                
+                return true;
             }
         }
-        System.out.println("Tarefa não encontrada para marcar como concluída.");
+        return false;
+    }
+
+    public boolean buscarTarefa(String titulo) {
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getTitulo().equals(titulo)) {
+                System.out.println(tarefa);
+                return true;
+            }
+        }
+        System.out.println("Tarefa não encontrada.");
+        return false;
     }
 
     // Método para criar uma nova tarefa
@@ -29,21 +46,26 @@ public class CrudTarefa {
     }
 
     // Método para editar uma tarefa existente
-    public void editarTarefa(String tituloExistente, String novoTitulo, String novaDescricao, LocalDate novaDataEntrega) {
-        for (Tarefa tarefa : tarefas) {
-            if (tarefa.getTitulo().equals(tituloExistente)) {
-                // Como não temos setters, criamos uma nova instância e substituímos a tarefa
-                tarefas.remove(tarefa);
-                tarefas.add(new Tarefa(novoTitulo, novaDescricao, novaDataEntrega));
-                System.out.println("Tarefa editada: " + novoTitulo);
-                return;
+    public boolean editarTarefa(String tituloExistente, String novoTitulo, String novaDescricao, LocalDate novaDataEntrega) {
+        if (tarefas.isEmpty()){
+            System.out.println("Não há tarefas para ser editada.");
+        } else {
+            for (Tarefa tarefa : tarefas) {
+                if (tarefa.getTitulo().equals(tituloExistente)) {
+                    // Como não temos setters, criamos uma nova instância e substituímos a tarefa
+                    tarefas.remove(tarefa);
+                    tarefas.add(new Tarefa(novoTitulo, novaDescricao, novaDataEntrega));
+                    System.out.println("Tarefa editada: " + novoTitulo);
+                    return true;
             }
-        }
-        System.out.println("Tarefa não encontrada para edição.");
+         }
+        }return false;
+        
+        
     }
 
     // Método para remover uma tarefa
-    public void removerTarefa(String titulo) {
+    public boolean removerTarefa(String titulo) {
         Tarefa tarefaParaRemover = null;
         for (Tarefa tarefa : tarefas) {
             if (tarefa.getTitulo().equals(titulo)) {
@@ -54,8 +76,10 @@ public class CrudTarefa {
         if (tarefaParaRemover != null) {
             tarefas.remove(tarefaParaRemover);
             System.out.println("Tarefa removida: " + titulo);
+            return true;
         } else {
             System.out.println("Tarefa não encontrada para remoção.");
+            return false;
         }
     }
 

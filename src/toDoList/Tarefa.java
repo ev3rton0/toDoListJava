@@ -40,10 +40,10 @@ public class Tarefa {
 
     @Override
     public String toString() {
-        return "Tarefa: " + titulo + ", Descrição: " + descricao + ", Data de Entrega: " + dataEntrega + ", Concluída: " + (concluida ? "Sim" : "Não");
+        return "=========================="+"\nTarefa: " + titulo + "\nDescrição: " + descricao + "\nData de Entrega: " + dataEntrega + "\nConcluída: " + (concluida ? "Sim" : "Não");
     }
 
-    // Sobrescreve equals() para comparação de tarefas pelo título
+    // Sobrescreve equals() para comparação de tarefas pelo título que garante que só são iguais se o título for igual.
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
