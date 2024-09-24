@@ -1,18 +1,33 @@
-## Getting Started
+## To-Do List em Java ✅📚
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Um sistema no qual o usuário poderá criar tarefas do seu dia a dia, tendo como opções criar, editar, remover, marcar como concluido e listar as tarefas.
 
-## Folder Structure
+## Funcionalidades 
 
-The workspace contains two folders by default, where:
+As funcionalidades principais do projeto a partir do código e da estrutura do projeto são:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `Criar tarefas`
+- `Editar tarefas`
+- `Remover Tarefas` 
+- `Marcar como Concluído`
+- `Listar Todas Tarefas`
+- `Listar Tarefas Concluídas`
+- `Listar Tarefas Pendentes`
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+> **STAKEHOLDERS**: O projeto diferencia entre dois tipos de usuários: Administrador e Leitor. Dependendo do tipo de usuário, diferentes funcionalidades podem estar disponíveis...
 
-## Dependency Management
+### Diagrama das Classes  
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+![alt text](<Blank diagram.png>)
+
+## Informações
+
+Esse projeto foi desenvolvido em linguagem Java para a disciplina de **Programação Orientada à Objetos** do Curso Ciência da Computação da Universidade Federal do Cariri.
+
+> Para mais informações do projeto o documento explicando detalhadamente cada processo do código está disponível no repositório.
+
+
+### Desenvolvido por :
+- Arthur Ricardo Macêdo Pereira
+- Everton Lohan Pereira Ferreira
